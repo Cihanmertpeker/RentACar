@@ -1,0 +1,2 @@
+-about
+-service ve diðer entityler eklenecek
