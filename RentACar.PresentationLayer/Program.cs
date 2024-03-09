@@ -1,6 +1,18 @@
+using RentACar.BusinessLayer.Abstract;
+using RentACar.BusinessLayer.Concrete;
+using RentACar.DataAccessLayer.Abstract;
+using RentACar.DataAccessLayer.Concrete;
+using RentACar.DataAccessLayer.EntityFramework;
+using RentACar.EntityLayer.Concrete;
+
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
+builder.Services.AddDbContext<RentACarContext>();
+
+builder.Services.AddScoped<IBrandDal,EfBrandDal>();
+builder.Services.AddScoped<IBrandService,BrandManager>();
+
 builder.Services.AddControllersWithViews();
 
 var app = builder.Build();

@@ -9,7 +9,7 @@ using System.Threading.Tasks;
 
 namespace RentACar.DataAccessLayer.EntityFramework
 {
-    public class EfPriceDal:GenericRepository<Price>,IPricaDal
+    public class EfPriceDal:GenericRepository<Price>,IPriceDal
     {
     }
 }

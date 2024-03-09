@@ -5,9 +5,10 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace RentACar.DataAccessLayer.Abstract
+namespace RentACar.BusinessLayer.Abstract
 {
-    public interface IPricaDal:IGenericDal<Price>
+    public interface IBrandService:IGenericService<Brand>
     {
+
     }
 }
