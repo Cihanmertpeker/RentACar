@@ -1,9 +1,9 @@
 ﻿@model List<RentACar.EntityLayer.Concrete.Brand>
 @{
-    Layout = null;
+    Layout = "~/Views/AdminLayout/Index.cshtml";
+    int count = 0;
 }
-<link href="~/lib/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet" />
-<div class="container">
+
     <br />
     <table class="table table-bordered">
         <tr>
@@ -14,17 +14,17 @@
             <th>Sil</th>
         </tr>
         @foreach (var item in Model)
-        {
-            <tr>
-                <td>@item.BrandID</td>
+    {
+        count++;
+        <tr>
+                <td>@count</td>
                 <td>@item.BrandName</td>
                 <td>@item.Status</td>
-                <td><a href="#" class="btn btn-secondary">Güncelle</a></td>
-                <td><a href="#" class="btn btn-danger">Sil</a></td>
+            <td><a href="/Brand/UpdateBrand/@item.BrandID" class="btn btn-secondary">Güncelle</a></td>
+                <td><a href="/Brand/DeleteBrand/@item.BrandID" class="btn btn-danger">Sil</a></td>
             </tr>
         }
     </table>
     <br />
-    <a href="#" class="btn btn-success">Yeni Marka Girişi</a>
+    <a href="/Brand/AddBrand" class="btn btn-success">Yeni Marka Girişi</a>
 
-</div>
