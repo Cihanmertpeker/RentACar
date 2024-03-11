@@ -1,0 +1,41 @@
+﻿@model List<RentACar.EntityLayer.Concrete.Car>
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/AdminLayout/Index.cshtml";
+}
+
+<h3>Araç Listesi</h3>
+
+<table class="table table-bordered">
+    <tr>
+        <th>#</th>
+        <th>Araç Modeli</th>
+        <th>Araç Kategorisi</th>
+        <th>Araç Markası</th>
+        <th>Vites Türü</th>
+        <th>Model Yılı</th>
+        <th>Araç Durumu</th>
+        <th>Sitede Gör</th>
+        <th>Detaylar</th>
+        <th>Güncelle</th>
+        <th>Sil</th>      
+    </tr>
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>@item.CarID</td>
+            <td>@item.CarModel</td>
+            <td>@item.CarCategoryID</td>
+            <td>@item.BrandID</td>
+            <td>@item.GearType</td>
+            <td>@item.Year</td>
+            <td>@item.CarStatusID</td>
+            <td><a href="#" class="btn btn-primary">Sitede Gör</a></td>
+            <td><a href="#" class="btn btn-info">Detaylar</a></td>
+            <td><a href="#" class="btn btn-success">Güncelle</a></td>
+            <td><a href="#" class="btn btn-danger">Sil</a></td>
+        </tr>
+    }
+</table>
+<td><a href="#" class="btn btn-success">Yeni Araç Girişi</a></td>
+

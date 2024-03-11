@@ -1,0 +1,30 @@
+﻿@model List<RentACar.EntityLayer.Concrete.CarStatus>
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/AdminLayout/Index.cshtml";
+    int count = 0;
+}
+
+<h3>Araç Durum Listesi</h3>
+
+<table class="table table-bordered">
+    <tr>
+        <th>#</th>
+        <th>Durum</th>
+        <th>Araç Detayları</th>
+        <th>Güncelle</th>
+        <th>Sil</th>
+    </tr>
+    @foreach (var item in Model)
+    {
+        count++;
+        <tr>
+            <td>@count</td>
+            <td>@item.CarStatusName</td>
+            <td><a href="#" class="btn btn-outline-info">Detaylar</a></td>
+            <td><a href="/CarStatus/UpdateCarStatus/@item.CarStatusID" class="btn btn-outline-success">Güncelle</a></td>
+            <td><a href="/CarStatus/RemoveCarStatus/@item.CarStatusID" class="btn btn-outline-danger">Sil</a></td>
+        </tr>
+    }
+</table>
+<a href="/CarStatus/CreateCarStatus" class="btn btn-outline-primary">Yeni Araç Durum Girişi</a>
