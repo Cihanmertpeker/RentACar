@@ -165,6 +165,10 @@ namespace RentACar.DataAccessLayer.Migrations
                     b.Property<int>("CarID")
                         .HasColumnType("int");
 
+                    b.Property<string>("PriceType")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
                     b.Property<decimal>("PriceValue")
                         .HasColumnType("decimal(18,2)");
 

@@ -9,5 +9,6 @@ namespace RentACar.DataAccessLayer.Abstract
 {
     public interface IPriceDal:IGenericDal<Price>
     {
+        List<Price> GetPricesWithCars();
     }
 }
