@@ -38,4 +38,8 @@
     <ProjectReference Include="..\RentACar.EntityLayer\RentACar.EntityLayer.csproj" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Folder Include="Views\Shared\Components\_NavbarUILayoutComponentPartial\" />
+  </ItemGroup>
+
 </Project>
