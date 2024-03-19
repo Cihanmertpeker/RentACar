@@ -3,6 +3,7 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using RentACar.DataAccessLayer.Concrete;
 
@@ -11,9 +12,10 @@ using RentACar.DataAccessLayer.Concrete;
 namespace RentACar.DataAccessLayer.Migrations
 {
     [DbContext(typeof(RentACarContext))]
-    partial class RentACarContextModelSnapshot : ModelSnapshot
+    [Migration("20240318223113_add_services")]
+    partial class add_services
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -346,23 +348,6 @@ namespace RentACar.DataAccessLayer.Migrations
                     b.HasKey("CarStatusID");
 
                     b.ToTable("CarStatuses");
-                });
-
-            modelBuilder.Entity("RentACar.EntityLayer.Concrete.HowItWorksStep", b =>
-                {
-                    b.Property<int>("HowItWorksStepID")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int");
-
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("HowItWorksStepID"), 1L, 1);
-
-                    b.Property<string>("Description")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.HasKey("HowItWorksStepID");
-
-                    b.ToTable("howItWorksSteps");
                 });
 
             modelBuilder.Entity("RentACar.EntityLayer.Concrete.Location", b =>

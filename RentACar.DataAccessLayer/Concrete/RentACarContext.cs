@@ -21,6 +21,8 @@ namespace RentACar.DataAccessLayer.Concrete
         public DbSet<CarStatus> CarStatuses { get; set; }
         public DbSet<Location> Locations { get; set; }
         public DbSet<Price> Prices { get; set; }
+        public DbSet<Service> Services { get; set; }
+        public DbSet<HowItWorksStep> howItWorksSteps { get; set; }
 
     }
 }
