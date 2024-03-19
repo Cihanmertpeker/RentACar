@@ -20,6 +20,9 @@ builder.Services.AddScoped<ICarStatusService, CarStatusManager>();
 builder.Services.AddScoped<ICarDal, EfCarDal>();
 builder.Services.AddScoped<ICarService, CarManager>();
 
+builder.Services.AddScoped<ICarDetailDal, EfCarDetailDal>();
+builder.Services.AddScoped<ICarDetailService, CarDetailManager>();
+
 builder.Services.AddScoped<IPriceDal, EfPriceDal>();
 builder.Services.AddScoped<IPriceService, PriceManager>();
 
@@ -28,6 +31,9 @@ builder.Services.AddScoped<IServiceService, ServiceManager>();
 
 builder.Services.AddScoped<IHowItWorksStepDal, EfHowItWorksStepDal>();
 builder.Services.AddScoped<IHowItWorksStepService, HowItWorksStepManager>();
+
+builder.Services.AddScoped<ICarCategoryDal, EfCarCategoryDal>();
+builder.Services.AddScoped<ICarCategoryService, CarCategoryManager>();
 
 builder.Services.AddIdentity<AppUser, AppRole>().AddEntityFrameworkStores<RentACarContext>().AddErrorDescriber<CustomIdentityValidator>();
 
