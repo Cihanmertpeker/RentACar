@@ -33,6 +33,11 @@ namespace RentACar.BusinessLayer.Concrete
             return _carDetailDal.GetCarDetailByCarId(id);
         }
 
+        public CarDetail TGetCarDetailWithAuthor(int id)
+        {
+            return _carDetailDal.GetCarDetailWithAuthor(id);
+        }
+
         public List<CarDetail> TGetListAll()
         {
             return _carDetailDal.GetListAll();

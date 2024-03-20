@@ -1,3 +1,4 @@
+using FluentValidation.AspNetCore;
 using RentACar.BusinessLayer.Abstract;
 using RentACar.BusinessLayer.Concrete;
 using RentACar.DataAccessLayer.Abstract;
@@ -35,9 +36,12 @@ builder.Services.AddScoped<IHowItWorksStepService, HowItWorksStepManager>();
 builder.Services.AddScoped<ICarCategoryDal, EfCarCategoryDal>();
 builder.Services.AddScoped<ICarCategoryService, CarCategoryManager>();
 
+builder.Services.AddScoped<ICommentDal, EfCommentDal>();
+builder.Services.AddScoped<ICommentService, CommentManager>();
+
 builder.Services.AddIdentity<AppUser, AppRole>().AddEntityFrameworkStores<RentACarContext>().AddErrorDescriber<CustomIdentityValidator>();
 
-builder.Services.AddControllersWithViews();
+builder.Services.AddControllersWithViews().AddFluentValidation();
 
 var app = builder.Build();
 

@@ -1,4 +1,5 @@
-﻿using RentACar.DataAccessLayer.Abstract;
+﻿using Microsoft.EntityFrameworkCore;
+using RentACar.DataAccessLayer.Abstract;
 using RentACar.DataAccessLayer.Concrete;
 using RentACar.DataAccessLayer.Repositories;
 using RentACar.EntityLayer.Concrete;
@@ -16,6 +17,13 @@ namespace RentACar.DataAccessLayer.EntityFramework
         {
             var context = new RentACarContext();
             var values = context.CarDetails.Where(x=>x.CarID==id).FirstOrDefault();
+            return values;
+        }
+
+        public CarDetail GetCarDetailWithAuthor(int id)
+        {
+            var context = new RentACarContext();
+            var values = context.CarDetails.Include(x=>x.AppUser).Where(y=>y.CarID==id).FirstOrDefault();
             return values;
         }
     }

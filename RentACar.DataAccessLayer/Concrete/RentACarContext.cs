@@ -24,6 +24,7 @@ namespace RentACar.DataAccessLayer.Concrete
         public DbSet<Service> Services { get; set; }
         public DbSet<HowItWorksStep> howItWorksSteps { get; set; }
         public DbSet<CarDetail> CarDetails { get; set; }
+        public DbSet<Comment> Comments { get; set; }
 
     }
 }

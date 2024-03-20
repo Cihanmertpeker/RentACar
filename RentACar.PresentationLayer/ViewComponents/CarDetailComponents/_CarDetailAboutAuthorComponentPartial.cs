@@ -1,12 +1,21 @@
 ﻿using Microsoft.AspNetCore.Mvc;
+using RentACar.BusinessLayer.Abstract;
 
 namespace RentACar.PresentationLayer.ViewComponents.CarDetailComponents
 {
     public class _CarDetailAboutAuthorComponentPartial:ViewComponent
     {
-        public IViewComponentResult Invoke()
+        private readonly ICarDetailService _carDetailService;
+
+        public _CarDetailAboutAuthorComponentPartial(ICarDetailService carDetailService)
         {
-            return View();
+            _carDetailService = carDetailService;
+        }
+
+        public IViewComponentResult Invoke(int id)
+        {
+            var values = _carDetailService.TGetCarDetailWithAuthor(id);
+            return View(values);
         }
     }
 }

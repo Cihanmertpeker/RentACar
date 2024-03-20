@@ -36,6 +36,8 @@ namespace RentACar.PresentationLayer.Controllers
         {
             ViewBag.title1 = "Araç Detayları";
             ViewBag.title2 = "Son Araç Detayları";
+            ViewBag.i = id;
+
             var value = _carDetailService.TGetCarDetailByCarId(id);
             ViewBag.v = value.Description;
             return View();
