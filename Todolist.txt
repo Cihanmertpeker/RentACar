@@ -1,2 +1,18 @@
 -about
 -service ve diðer entityler eklenecek
+-Ana sayfada araç filtresi getirilecek
+-lokasyona göre arama yapýlacak
+-anasayfada slider tamamlanacak (veri tabanýna eklenen son 5 araç listelenecek)
+-anasayfada hizmetler listelenecek
+-anasayfada how it work listelenecek
+-anasayfada referanslar listelenecek
+-araç detayý olmasada olur (anasayfada)
+-footer alaný türkçeleþtirilecek
+-hizmetler sayfasý tamöamlanacak
+-araba listesi sayfasý tamamlanacak
+-paging etklenecek
+-araç detaylarýna týkladýðýnda araç detaylarýna gidecek
+-yorum iþlemi tamamlanacak
+-hakkýmda sayfasý tamamlanacak
+-iletiþim sayfasý tamamlanacak
+-projede login ve register iþlemleri çalýþacak
