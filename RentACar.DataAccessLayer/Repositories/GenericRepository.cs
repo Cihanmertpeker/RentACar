@@ -10,34 +10,40 @@ namespace RentACar.DataAccessLayer.Repositories
 {
     public class GenericRepository<T> : IGenericDal<T> where T : class
     {
-        RentACarContext context = new RentACarContext();
-        public void Delete(T entity)
+        private readonly RentACarContext _context;
+
+        public GenericRepository(RentACarContext context)
         {
-            context.Set<T>().Remove(entity);
-            context.SaveChanges();
+            _context = context;
         }
 
-        public T GetById(int id)
+        public void Delete(int id)
         {
-            return context.Set<T>().Find(id);
+            var values = _context.Set<T>().Find(id);
+            _context.Remove(values);
+            _context.SaveChanges();
         }
 
-        public List<T> GetListAll()
+        public T GetByID(int id)
         {
-            return context.Set<T>().ToList();
+            return _context.Set<T>().Find(id);
+        }
+
+        public List<T> GetList()
+        {
+            return _context.Set<T>().ToList();
         }
 
         public void Insert(T entity)
         {
-           context.Set<T>().Add(entity);
-           context.SaveChanges();
-
+            _context.Set<T>().Add(entity);
+            _context.SaveChanges();
         }
 
         public void Update(T entity)
         {
-            context.Set<T>().Update(entity);
-            context.SaveChanges();
+            _context.Set<T>().Update(entity);
+            _context.SaveChanges();
         }
     }
 }

@@ -6,12 +6,12 @@ using System.Threading.Tasks;
 
 namespace RentACar.DataAccessLayer.Abstract
 {
-    public interface IGenericDal<T>where T : class
+    public interface IGenericDal<T> where T : class
     {
-        void Insert(T entity);
+        void Delete(int id);
         void Update(T entity);
-        void Delete(T entity);
-        List<T> GetListAll();
-        T GetById(int id);
+        void Insert(T entity);
+        List<T> GetList();
+        T GetByID(int id);
     }
 }

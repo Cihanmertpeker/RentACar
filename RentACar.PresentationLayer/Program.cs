@@ -1,47 +1,53 @@
-using FluentValidation.AspNetCore;
+using AutoMapper;
 using RentACar.BusinessLayer.Abstract;
 using RentACar.BusinessLayer.Concrete;
 using RentACar.DataAccessLayer.Abstract;
 using RentACar.DataAccessLayer.Concrete;
-using RentACar.DataAccessLayer.EntityFramework;
+using RentACar.DataAccessLayer.Repositories;
 using RentACar.EntityLayer.Concrete;
+using Microsoft.AspNetCore.Mvc.Authorization;
+using Microsoft.AspNetCore.Mvc.Formatters;
+using System.Text.Json;
+using System.Text.Json.Serialization;
 using RentACar.PresentationLayer.Models;
-
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 builder.Services.AddDbContext<RentACarContext>();
-
-builder.Services.AddScoped<IBrandDal,EfBrandDal>();
-builder.Services.AddScoped<IBrandService,BrandManager>();
-
-builder.Services.AddScoped<ICarStatusDal, EfCarStatusDal>();
-builder.Services.AddScoped<ICarStatusService, CarStatusManager>();
-
-builder.Services.AddScoped<ICarDal, EfCarDal>();
-builder.Services.AddScoped<ICarService, CarManager>();
-
-builder.Services.AddScoped<ICarDetailDal, EfCarDetailDal>();
-builder.Services.AddScoped<ICarDetailService, CarDetailManager>();
-
-builder.Services.AddScoped<IPriceDal, EfPriceDal>();
-builder.Services.AddScoped<IPriceService, PriceManager>();
-
-builder.Services.AddScoped<IServiceDal, EfServiceDal>();
-builder.Services.AddScoped<IServiceService, ServiceManager>();
-
-builder.Services.AddScoped<IHowItWorksStepDal, EfHowItWorksStepDal>();
-builder.Services.AddScoped<IHowItWorksStepService, HowItWorksStepManager>();
-
-builder.Services.AddScoped<ICarCategoryDal, EfCarCategoryDal>();
-builder.Services.AddScoped<ICarCategoryService, CarCategoryManager>();
-
-builder.Services.AddScoped<ICommentDal, EfCommentDal>();
-builder.Services.AddScoped<ICommentService, CommentManager>();
-
 builder.Services.AddIdentity<AppUser, AppRole>().AddEntityFrameworkStores<RentACarContext>().AddErrorDescriber<CustomIdentityValidator>();
+builder.Services.AddScoped(typeof(IGenericDal<>), typeof(GenericRepository<>));
+builder.Services.AddScoped(typeof(IGenericService<>), typeof(GenericService<>));
+builder.Services.AddScoped<ICarService, CarService>();
+builder.Services.AddScoped<IPriceService, PriceService>();
+builder.Services.AddScoped<IBrandService, BrandService>();
+builder.Services.AddScoped<ICarStatusService, CarStatusService>();
+builder.Services.AddScoped<ILocationService, LocationService>();
+builder.Services.AddScoped<ICategoryService, CategoryService>();
+builder.Services.AddScoped<IServiceService, ServiceService>();
+builder.Services.AddScoped<ICarDetailService, CarDetailService>();
+builder.Services.AddScoped<ICarFeatureService, CarFeatureService>();
+builder.Services.AddScoped<IReviewService, ReviewService>();
 
-builder.Services.AddControllersWithViews().AddFluentValidation();
+
+builder.Services.AddControllersWithViews(options =>
+{
+    options.Filters.Add(new AuthorizeFilter());
+}).AddJsonOptions(options =>
+{
+    options.JsonSerializerOptions.ReferenceHandler = ReferenceHandler.IgnoreCycles;
+    options.JsonSerializerOptions.WriteIndented = true;
+});
+
+
+builder.Services.ConfigureApplicationCookie(options =>
+{
+    options.LoginPath = new PathString("/Login/Index");
+    options.LogoutPath = new PathString("/Login/Logout");
+});
+
+
+
+builder.Services.AddAutoMapper(typeof(Program));
 
 var app = builder.Build();
 

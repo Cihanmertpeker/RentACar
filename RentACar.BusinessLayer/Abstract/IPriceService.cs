@@ -9,7 +9,6 @@ namespace RentACar.BusinessLayer.Abstract
 {
     public interface IPriceService : IGenericService<Price>
     {
-        public List<Price> TGetPricesWithCars();
-
+        List<Price> GetAll();
     }
 }

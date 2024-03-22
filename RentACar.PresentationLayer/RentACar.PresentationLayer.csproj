@@ -38,11 +38,13 @@
   <ItemGroup>
     <ProjectReference Include="..\RentACar.BusinessLayer\RentACar.BusinessLayer.csproj" />
     <ProjectReference Include="..\RentACar.DataAccessLayer\RentACar.DataAccessLayer.csproj" />
+    <ProjectReference Include="..\RentACar.DtoLayer\RentACar.DtoLayer.csproj" />
     <ProjectReference Include="..\RentACar.EntityLayer\RentACar.EntityLayer.csproj" />
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="Views\Shared\Components\_NavbarUILayoutComponentPartial\" />
+    <Folder Include="Controllers\" />
+    <Folder Include="ViewComponents\" />
   </ItemGroup>
 
 </Project>

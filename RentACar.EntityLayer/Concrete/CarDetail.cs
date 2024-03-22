@@ -10,8 +10,8 @@ namespace RentACar.EntityLayer.Concrete
 	{
         public int CarDetailId { get; set; }
         public string Description { get; set; }
-       
-        public int CarId { get; set; }
-		public Car Car { get; set; }
-	}
+
+        public int CarID { get; set; }
+        public Car Car { get; set; }
+    }
 }

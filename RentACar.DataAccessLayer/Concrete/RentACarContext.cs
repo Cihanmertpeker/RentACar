@@ -17,14 +17,17 @@ namespace RentACar.DataAccessLayer.Concrete
         }
         public DbSet<Brand> Brands { get; set; }
         public DbSet<Car> Cars { get; set; }
-        public DbSet<CarCategory> CarCategories { get; set; }
         public DbSet<CarStatus> CarStatuses { get; set; }
+        public DbSet<Category> Categories { get; set; }
         public DbSet<Location> Locations { get; set; }
         public DbSet<Price> Prices { get; set; }
         public DbSet<Service> Services { get; set; }
-        public DbSet<HowItWorksStep> howItWorksSteps { get; set; }
         public DbSet<CarDetail> CarDetails { get; set; }
-        public DbSet<Comment> Comments { get; set; }
+        public DbSet<CarFeature> CarFeatures { get; set; }
+        public DbSet<Review> Reviews { get; set; }
+        public DbSet<Testimonial> Testimonials { get; set; }
+        public DbSet<Contact> Contacts { get; set; }
+        public DbSet<Message> Messages { get; set; }
 
     }
 }

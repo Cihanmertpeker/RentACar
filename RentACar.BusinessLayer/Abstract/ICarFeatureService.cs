@@ -8,14 +8,9 @@ using System.Threading.Tasks;
 
 namespace RentACar.BusinessLayer.Abstract
 {
-    public interface ICarService : IGenericService<Car>
+    public interface ICarFeatureService : IGenericService<CarFeature>
     {
-        List<Car> TGetAll();
-
-        List<Car> GetLast5Cars();
-        List<Car> GetLast3Cars();
-
-        public List<CategoryDto> GetCategoryCount();
+        List<CarFeature> GetFeaturesByCarId(int id);
 
     }
 }

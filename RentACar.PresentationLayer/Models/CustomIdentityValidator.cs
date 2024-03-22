@@ -4,47 +4,57 @@ namespace RentACar.PresentationLayer.Models
 {
     public class CustomIdentityValidator : IdentityErrorDescriber
     {
-        public override IdentityError PasswordRequiresLower()
-        {
-            return new IdentityError
-            {
-                Code = "PasswordRequiresLower",
-                Description = "Lütfen en az 1 tane küçük harf girişi yapınız"
-            };
-            
-        }
-        public override IdentityError PasswordRequiresUpper()
-        {
-            return new IdentityError
-            {
-                Code = "PasswordRequiresUpper",
-                Description = "Lütfen en az 1 tane büyük harf girişi yapınız"
-            };
-        }
+
+
 
         public override IdentityError PasswordRequiresDigit()
         {
             return new IdentityError
             {
-                Code = "PasswordRequiresDigit",
-                Description = "Lütfen en az 1 tane rakam girişi yapınız"
+                Description = "Lütfen en az 1 tane rakam yazın (1-9)"
             };
+
+
         }
-        public override IdentityError PasswordTooShort(int length)
+
+
+        public override IdentityError PasswordRequiresLower()
         {
             return new IdentityError
             {
-                Code = "PasswordTooShort",
-                Description = $"Lütfen en az {length} karakter girişi yapınız"
+                Description = "Lütfen en az bir küçük harf yazın (a-z)"
             };
         }
+
         public override IdentityError PasswordRequiresNonAlphanumeric()
         {
             return new IdentityError
             {
-                Code = "PasswordRequiresNonAlphanumeric",
-                Description = "Lütfen en az 1 tane sembol girişi yapınız"
+                Description = "Lütfen en az bir simge yazın (.!/+...)"
             };
         }
+
+
+        public override IdentityError PasswordRequiresUpper()
+        {
+            return new IdentityError
+            {
+                Description = "Lütfen en az bir büyük harf yazın (A-Z)"
+            };
+        }
+
+
+        public override IdentityError PasswordTooShort(int length)
+        {
+            return new IdentityError
+            {
+                Description = "Şifre en az 6 karakter içermelidir."
+            };
+        }
+
+        
+
+
     }
 }
+

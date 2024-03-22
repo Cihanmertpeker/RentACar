@@ -6,12 +6,12 @@ using System.Threading.Tasks;
 
 namespace RentACar.BusinessLayer.Abstract
 {
-    public interface IGenericService<T>where T : class
+    public interface IGenericService<T> where T : class
     {
-        void TInsert(T entity);
+        void TDelete(int id);
         void TUpdate(T entity);
-        void TDelete(T entity);
-        List<T> TGetListAll();
-        T TGetById(int id);
+        void TInsert(T entity);
+        List<T> TGetList();
+        T TGetByID(int id);
     }
 }

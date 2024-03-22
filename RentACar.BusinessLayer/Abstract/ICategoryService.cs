@@ -7,10 +7,9 @@ using System.Threading.Tasks;
 
 namespace RentACar.BusinessLayer.Abstract
 {
-    public interface ICarDetailService:IGenericService<CarDetail>
+    public interface ICategoryService : IGenericService<Category>
     {
-        CarDetail GetDetailByCarId(int id);
-        List<CarDetail> GetAll();
+
 
     }
 }
