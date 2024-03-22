@@ -6,15 +6,12 @@ using System.Threading.Tasks;
 
 namespace RentACar.EntityLayer.Concrete
 {
-    public class CarDetail
-    {
-        public int CarDetailID { get; set; }
+	public class CarDetail
+	{
+        public int CarDetailId { get; set; }
         public string Description { get; set; }
-        public int CarID { get; set; }
-        public Car Car { get; set; }
-        public int AppUserID { get; set; }
-        public AppUser AppUser { get; set; }
-        public DateTime CreatedDate { get; set; } =DateTime.Now;
-
-    }
+       
+        public int CarId { get; set; }
+		public Car Car { get; set; }
+	}
 }

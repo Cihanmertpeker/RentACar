@@ -6,11 +6,12 @@ using System.Threading.Tasks;
 
 namespace RentACar.EntityLayer.Concrete
 {
-    public class Service
+    public  class Testimonial
     {
-        public int ServiceId { get; set; }
+        public int TestimonialId { get; set; }
+        public string Name { get; set; }
         public string Title { get; set; }
-        public string Description { get; set; }
-        public string Icon { get; set; }
+        public string Image { get; set; }
+        public string Comment { get; set; }
     }
 }

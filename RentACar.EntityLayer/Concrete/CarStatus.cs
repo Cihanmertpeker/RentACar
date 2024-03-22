@@ -9,7 +9,7 @@ namespace RentACar.EntityLayer.Concrete
     public class CarStatus
     {
         public int CarStatusID { get; set; }
-        public string CarStatusName { get; set; }
+        public string StatusName { get; set; }
         public List<Car> Cars { get; set; }
     }
 }

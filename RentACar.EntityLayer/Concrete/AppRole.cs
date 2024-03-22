@@ -9,6 +9,5 @@ namespace RentACar.EntityLayer.Concrete
 {
     public class AppRole:IdentityRole<int>
     {
-
     }
 }
