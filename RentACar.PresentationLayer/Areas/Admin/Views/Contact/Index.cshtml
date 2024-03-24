@@ -1,0 +1,60 @@
+﻿@using RentACar.DtoLayer.DTOs.ContactDtos
+@model List<ContactDto>
+
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Areas/Admin/Views/Shared/_AdminLayout.cshtml";
+}
+
+<br />
+<h3>İletişim Bilgileri</h3>
+
+@{
+    int count = 0;
+}
+<div class="container">
+    <table class="table table-hover">
+        <tr>
+            <th>#</th>
+            <th>Adres</th>
+            <th>Telefon</th>
+            <th>Email</th>
+            <th></th>
+        </tr>
+        @foreach (var item in Model)
+        {
+            count++;
+            <tr>
+                <th>@count</th>
+                <td>@item.Address</td>
+                <td>@item.Phone</td>
+                <td>@item.Email</td>
+                <td>
+                    <a asp-action="UpdateContact" asp-route-id="@item.ContactId" class="btn btn-outline-info">Düzenle</a>
+                    <button onclick="deleteContact(@item.ContactId)" type="submit" class="btn btn-outline-danger">Sil</button>
+
+                </td>
+            </tr>
+        }
+    </table>
+    <br />
+    <a asp-action="AddContact" asp-controller="Contact" class="btn btn-outline-dark">Yeni İletişim Bilgisi Ekle</a>
+</div>
+
+<script>
+    function deleteContact(id) {
+        Swal.fire({
+
+            title: 'Silmek istediğinize emin misiniz?',
+            text: 'Bu öğeyi silerseniz geri alamazsınız!',
+            icon: 'warning',
+            showCancelButton: true,
+            confirmButtonText: 'Sil',
+            cancelButtonText: 'İptal'
+        }).then((result) => {
+            if (result.isConfirmed) {
+                window.location.href = "/Admin/Contact/DeleteContact?id=" + id;
+            }
+        });
+    }
+</script>

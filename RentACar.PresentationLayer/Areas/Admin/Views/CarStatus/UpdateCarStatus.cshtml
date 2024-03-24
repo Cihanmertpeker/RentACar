@@ -1,0 +1,20 @@
+﻿@using RentACar.DtoLayer.DTOs.CarStatusDtos
+@model CarStatusDto
+@{
+    ViewData["Title"] = "UpdateCarStatus";
+    Layout = "~/Areas/Admin/Views/Shared/_AdminLayout.cshtml";
+}
+
+<br />
+<h3>Araç Durum Düzenleme</h3>
+
+<br />
+<form method="post">
+    <input type="hidden" asp-for="CarStatusID" />
+    <label>Durum</label>
+    <input type="text" asp-for="StatusName" class="form-control" style="border:1px solid #000000" placeholder="Marka Adı" required />
+    <br />
+    <button class="btn btn-outline-dark">Kaydet</button>
+</form>
+
+

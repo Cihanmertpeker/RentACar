@@ -1,0 +1,62 @@
+﻿@using RentACar.DtoLayer.DTOs.ReviewDtos
+@model List<ReviewDto>
+
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Areas/Admin/Views/Shared/_AdminLayout.cshtml";
+}
+
+<br />
+<h3>Araç Yorumları</h3>
+
+@{
+    int count = 0;
+}
+<div class="container">
+    <table class="table table-hover">
+        <tr>
+            <th>#</th>
+            <th>Ad Soyad</th>
+            <th>Araba</th>
+            <th>Yorum</th>
+            <th>Tarih</th>
+            <th></th>
+        </tr>
+        @foreach (var item in Model)
+        {
+            count++;
+            <tr>
+                <th>@count</th>
+                <td>@item.NameSurname</td>
+                <td>@item.Car.Brand.BrandName @item.Car.CarName</td>
+                <td>@item.Comment</td>
+                <td>@item.CommentDate.ToString("g")</td>
+                <td>
+                    <a asp-action="UpdateReview" asp-route-id="@item.ReviewId" class="btn btn-outline-info">Düzenle</a>
+                    <button onclick="deleteReview(@item.ReviewId)" type="submit" class="btn btn-outline-danger">Sil</button>
+
+                </td>
+            </tr>
+        }
+    </table>
+    <br />
+
+</div>
+
+<script>
+    function deleteReview(id) {
+        Swal.fire({
+
+            title: 'Silmek istediğinize emin misiniz?',
+            text: 'Bu öğeyi silerseniz geri alamazsınız!',
+            icon: 'warning',
+            showCancelButton: true,
+            confirmButtonText: 'Sil',
+            cancelButtonText: 'İptal'
+        }).then((result) => {
+            if (result.isConfirmed) {
+                window.location.href = "/Admin/Contact/DeleteContact?id=" + id; 
+            }
+        });
+    }
+</script>

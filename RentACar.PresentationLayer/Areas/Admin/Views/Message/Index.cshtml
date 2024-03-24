@@ -1,0 +1,61 @@
+﻿@using RentACar.DtoLayer.DTOs.MessageDtos
+@model List<MessageDto>
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Areas/Admin/Views/Shared/_AdminLayout.cshtml";
+}
+
+<br />
+<h3>Gelen Mesajlar</h3>
+
+@{
+    int count = 0;
+}
+<div class="container">
+    <table class="table table-hover">
+        <tr>
+            <th>#</th>
+            <th>Ad Soyad</th>
+            <th>Email</th>
+            <th>Konu</th>
+            <th>Mesaj</th>
+            <th>Tarih-Zaman</th>
+            <th></th>
+        </tr>
+        @foreach (var item in Model)
+        {
+            count++;
+            <tr>
+                <th>@count</th>
+                <td>@item.Name</td>
+                <td>@item.Email</td>
+                <td>@item.Subject</td>
+                <td>@item.MessageBody</td>
+                <td>@item.MessageDate.ToString("g")</td>
+                <td>
+                    <button onclick="deleteMessage(@item.MessageId)" type="submit" class="btn btn-outline-danger">Sil</button>
+                </td>
+            </tr>
+        }
+    </table>
+    <br />
+
+</div>
+
+<script>
+    function deleteMessage(id) {
+        Swal.fire({
+
+            title: 'Silmek istediğinize emin misiniz?',
+            text: 'Bu öğeyi silerseniz geri alamazsınız!',
+            icon: 'warning',
+            showCancelButton: true,
+            confirmButtonText: 'Sil',
+            cancelButtonText: 'İptal'
+        }).then((result) => {
+            if (result.isConfirmed) {
+                window.location.href = "/Admin/Message/DeleteMessage?id=" + id; 
+            }
+        });
+    }
+</script>

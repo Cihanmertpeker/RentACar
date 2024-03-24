@@ -1,0 +1,59 @@
+﻿@{
+    Layout = null;
+}
+
+<!doctype html>
+<html lang="tr">
+<head>
+    <title>CarBook | Admin Paneli</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <link href="https://fonts.googleapis.com/css?family=Poppins:300,400,500,600,700,800,900" rel="stylesheet">
+
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="~/sidebar-09/css/style.css">
+    <link href="~/sidebar-09/css/bootstrap.min.css" rel="stylesheet" />
+
+</head>
+<body>
+
+    <div class="wrapper d-flex align-items-stretch">
+        <nav id="sidebar">
+            <div class="custom-menu">
+                <button type="button" id="sidebarCollapse" class="btn btn-primary">
+                </button>
+            </div>
+            @await Component.InvokeAsync("_UserInfo")
+            <ul class="list-unstyled components mb-5">
+                <li>
+                    <a href="#"><span class="fa fa-home mr-3"></span> Dashboard</a>
+                </li>
+
+                <li>
+                    <a href="/Admin/Brand/Index"><span class="fa fa-tag mr-3"></span> Markalar</a>
+                </li>
+                <li>
+                    <a href="/Admin/Car/Index"><span class="fa fa-car mr-3"></span>Arabalar</a>
+                </li>
+
+                <li>
+                    <a href="/Admin/CarStatus/Index"><span class="fa fa-list mr-3"></span>Araç Durumları</a>
+                </li>
+
+            </ul>
+
+        </nav>
+
+        <!-- Page Content  -->
+        <div id="content" class="p-4 p-md-5 pt-5">
+            @RenderBody()
+        </div>
+    </div>
+
+    <script src="~/sidebar-09/js/jquery.min.js"></script>
+    <script src="~/sidebar-09/js/popper.js"></script>
+    <script src="~/sidebar-09/js/bootstrap.min.js"></script>
+    <script src="~/sidebar-09/js/main.js"></script>
+</body>
+</html>

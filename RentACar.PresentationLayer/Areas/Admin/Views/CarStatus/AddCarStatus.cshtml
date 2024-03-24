@@ -1,0 +1,19 @@
+﻿@using RentACar.DtoLayer.DTOs.CarStatusDtos
+@model CarStatusDto
+@{
+    ViewData["Title"] = "AddCarStatus";
+    Layout = "~/Areas/Admin/Views/Shared/_AdminLayout.cshtml";
+}
+<br />
+<h3>Araç Durum Ekleme</h3>
+
+<br />
+<form method="post">
+    <div class="form-floating mb-3">
+        <input type="text" class="form-control" placeholder="Araç Durumu"
+               id="floatingInput" asp-for="StatusName">
+        <label for="floatingInput">Araç Durumu</label>
+    </div>
+    <br />
+    <button class="btn btn-outline-dark">Kaydet</button>
+</form>
