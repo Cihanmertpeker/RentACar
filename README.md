@@ -1,4 +1,4 @@
-**M&Y Yazılım Eğitim Akademi - CarBook N-Tier Architecture Projesi**
+**M&Y Yazılım Eğitim Akademi - RentACar N-Tier Architecture Projesi**
 
 ___________________________________________
 
